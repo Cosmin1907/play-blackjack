@@ -30,6 +30,21 @@ def deal_cards(turn):
 
 
 # Calculate Hand Value
+def total(turn):
+    total = 0
+    face = ['J', 'K', 'Q']
+    for card in turn:
+        if card in range(1, 11):
+            total += card
+        elif card in face:
+            total += 10
+        else:
+            if total > 11:
+                total += 1
+            else:
+                total += 11
+    print(total)
+
 
 # Hit
 
@@ -38,6 +53,7 @@ def deal_cards(turn):
 # Check Bust
 
 # Determine Winner
+
 
 # Display Hands
 
@@ -48,3 +64,5 @@ def deal_cards(turn):
 deal_cards(player_hand)
 deal_cards(dealer_hand)
 print(game_deck)
+total(player_hand)
+total(dealer_hand)
