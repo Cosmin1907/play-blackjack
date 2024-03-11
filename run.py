@@ -32,11 +32,10 @@ def deal_cards(turn):
 # Calculate Hand Value
 def total(turn):
     total = 0
-    face = ['J', 'K', 'Q']
     for card in turn:
-        if card in range(1, 11):
-            total += card
-        elif card in face:
+        if card.isdigit():
+            total += int(card)
+        elif card in ['J', 'K', 'Q']:
             total += 10
         else:
             if total > 11:
@@ -53,16 +52,23 @@ def total(turn):
 # Check Bust
 
 # Determine Winner
-
-
 # Display Hands
+def show_hand():
+    if len(dealer_hand) == 2:
+        return dealer_hand[0]
+    elif len(dealer_hand) > 2:
+        return dealer_hand[0], dealer_hand[1]
 
 # Game loop
+for _ in range(2):
+    deal_cards(dealer_hand)
+    deal_cards(player_hand)
+
+print(dealer_hand)
+print(player_hand)
 
 # Update Bankroll
 
-deal_cards(player_hand)
-deal_cards(dealer_hand)
-print(game_deck)
-total(player_hand)
+
 total(dealer_hand)
+total(player_hand)
