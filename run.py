@@ -52,7 +52,7 @@ def show_hand():
     if len(dealer_hand) == 2:
         return dealer_hand[0]
     elif len(dealer_hand) > 2:
-        return dealer_hand[0], dealer_hand[1]
+        return dealer_hand[0], dealer_hand[1]  
 
 # Game loop
 for _ in range(2):
@@ -64,7 +64,7 @@ print(f"Your hand: {player_hand} for a total of {total(player_hand)}")
 while playerIn or dealerIn:
 
     if playerIn:
-        stay_hit = input("\nPress the key\n1 to STAND\n2 to HIT\n")
+        stay_hit = input("\nEnter:\n1 to STAND\n2 to HIT\n")
         if stay_hit == '1':
             print("\nYou STAND")
             print(f"\nDealer has {dealer_hand} for a total of {total(dealer_hand)}")
@@ -75,7 +75,7 @@ while playerIn or dealerIn:
             print(f"\nYou have {player_hand} for a total of {total(player_hand)}")
             if total(player_hand) >= 21:
                 playerIn = False
-                break # End player's turn immediately on bust or reaching 21
+                break
 
     # Check if the player is no longer in the game (either by standing or busting)
     if not playerIn:
@@ -89,7 +89,6 @@ while playerIn or dealerIn:
                 break
         # After dealer acts, if they haven't busted, they're done
         dealerIn = False
-
 
 # Determine Winner
 if total(player_hand) == 21:
@@ -107,5 +106,18 @@ elif total(dealer_hand) < total(player_hand):
 elif total(player_hand) == total(dealer_hand):
     print("\nTye Game!")
 
+# Reset Game
+def reset_game():
+    deal = input("\nEnter: 0 to Deal\n")
+    if deal == '0':
+            player_hand = []
+            dealer_hand = []
+            playerIn = True
+            dealerIn = True
+    else:
+        pass  
 
+
+
+reset_game()
 # Update Bankroll
