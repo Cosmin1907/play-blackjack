@@ -55,69 +55,76 @@ def show_hand():
         return dealer_hand[0], dealer_hand[1]  
 
 # Game loop
-for _ in range(2):
-    deal_cards(dealer_hand)
-    deal_cards(player_hand)
-print(f"Dealer hand: {show_hand()} and X")
-print(f"Your hand: {player_hand} for a total of {total(player_hand)}")
+def main_game():
+    global player_hand, dealer_hand, playerIn, dealerIn
+    
+    for _ in range(2):
+        deal_cards(dealer_hand)
+        deal_cards(player_hand)
+    print(f"Dealer hand: {show_hand()} and X")
+    print(f"Your hand: {player_hand} for a total of {total(player_hand)}")
 
-while playerIn or dealerIn:
+    while playerIn or dealerIn:
 
-    if playerIn:
-        stay_hit = input("\nEnter:\n1 to STAND\n2 to HIT\n")
-        if stay_hit == '1':
-            print("\nYou STAND")
-            print(f"\nDealer has {dealer_hand} for a total of {total(dealer_hand)}")
-            playerIn = False
-        else:
-            print("\nYou HIT")
-            deal_cards(player_hand)
-            print(f"\nYou have {player_hand} for a total of {total(player_hand)}")
-            if total(player_hand) >= 21:
+        if playerIn:
+            stay_hit = input("\nEnter:\n1 to STAND\n2 to HIT\n")
+            if stay_hit == '1':
+                print("\nYou STAND")
+                print(f"\nDealer has {dealer_hand} for a total of {total(dealer_hand)}")
                 playerIn = False
-                break
+            else:
+                print("\nYou HIT")
+                deal_cards(player_hand)
+                print(f"\nYou have {player_hand} for a total of {total(player_hand)}")
+                if total(player_hand) >= 21:
+                    playerIn = False
+                    break
 
-    # Check if the player is no longer in the game (either by standing or busting)
-    if not playerIn:
-        # Dealer must hit if total is less than 17, according to Blackjack rules
-        while total(dealer_hand) < 17:
-            print("\nDealer HITs")
-            deal_cards(dealer_hand)
-            print(f"\nDealer has {dealer_hand} for a total of {total(dealer_hand)}")
-            # Check after each hit if the dealer busts; if so, break immediately
-            if total(dealer_hand) >= 21:
-                break
-        # After dealer acts, if they haven't busted, they're done
-        dealerIn = False
+        # Check if the player is no longer in the game (either by standing or busting)
+        if not playerIn:
+            # Dealer must hit if total is less than 17, according to Blackjack rules
+            while total(dealer_hand) < 17:
+                print("\nDealer HITs")
+                deal_cards(dealer_hand)
+                print(f"\nDealer has {dealer_hand} for a total of {total(dealer_hand)}")
+                # Check after each hit if the dealer busts; if so, break immediately
+                if total(dealer_hand) >= 21:
+                    break
+            # After dealer acts, if they haven't busted, they're done
+            dealerIn = False
+    check_winner()  
 
 # Determine Winner
-if total(player_hand) == 21:
-    print("\nBlackjack! You Win!")
-elif total(dealer_hand) == 21:
-    print("\nBlackjack! Dealer Wins!")
-elif total(player_hand) > 21:
-    print("\nYou bust! Dealer Wins!")
-elif total(dealer_hand) > 21:
-    print("\nDealer busts! You Win")
-elif total(dealer_hand) > total(player_hand):
-    print("\nDealer Wins!")
-elif total(dealer_hand) < total(player_hand):
-    print("\nYou Win!")
-elif total(player_hand) == total(dealer_hand):
-    print("\nTye Game!")
+def check_winner():
+    global player_hand, dealer_hand
+    if total(player_hand) == 21:
+        print("\nBlackjack! You Win!")
+    elif total(dealer_hand) == 21:
+        print("\nBlackjack! Dealer Wins!")
+    elif total(player_hand) > 21:
+        print("\nYou bust! Dealer Wins!")
+    elif total(dealer_hand) > 21:
+        print("\nDealer busts! You Win")
+    elif total(dealer_hand) > total(player_hand):
+        print("\nDealer Wins!")
+    elif total(dealer_hand) < total(player_hand):
+        print("\nYou Win!")
+    elif total(player_hand) == total(dealer_hand):
+        print("\nTye Game!")
+    reset_game()
 
 # Reset Game
 def reset_game():
+    global player_hand, dealer_hand, playerIn, dealerIn
     deal = input("\nEnter: 0 to Deal\n")
     if deal == '0':
             player_hand = []
             dealer_hand = []
             playerIn = True
             dealerIn = True
+            main_game()
     else:
         pass  
 
-
-
-reset_game()
+main_game()
 # Update Bankroll
