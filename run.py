@@ -13,7 +13,7 @@ dealerIn = True
 
 
 # Display welcome Message
-result = pyfiglet.figlet_format("Blackjack", font = "digital")
+result = pyfiglet.figlet_format("   Blackjack   ", font = "digital")
 print(result)
 
 # Initialize Deck
@@ -62,20 +62,31 @@ for _ in range(2):
 while playerIn or dealerIn:
     print(f"Dealer hand: {show_hand()} and X")
     print(f"Your hand: {player_hand} for a total of {total(player_hand)}")
-    if playerIn: 
-        stay_hit = input("Press the key\n1 to Stay\n2 to Hit\n")
-    if stay_hit == '1':
-        playerIn = False
-    else: 
-        deal_cards(player_hand)
-    if total(dealer_hand) > 16:
+
+    if playerIn:
+        stay_hit = input("\nPress the key\n1 to Stay\n2 to Hit\n")
+        if stay_hit == '1':
+            print("\nYou STAND")
+            playerIn = False
+        else:
+            print("\nYou HIT")
+            deal_cards(player_hand)
+            if total(player_hand) >= 21:
+                playerIn = False
+                break # End player's turn immediately on bust or reaching 21
+
+    # Check if the player is no longer in the game (either by standing or busting)
+    if not playerIn:
+        # Dealer must hit if total is less than 17, according to Blackjack rules
+        while total(dealer_hand) < 17:
+            print("\nDealer HITs")
+            deal_cards(dealer_hand)
+            # Check after each hit if the dealer busts; if so, break immediately
+            if total(dealer_hand) >= 21:
+                break
+        # After dealer acts, if they haven't busted, they're done
         dealerIn = False
-    else:
-        deal_cards(dealer_hand)
-    if total(player_hand) >= 21:
-        break
-    elif total(dealer_hand) >= 21:
-        break
+
 
 # Determine Winner
 if total(player_hand) == 21:
