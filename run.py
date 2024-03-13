@@ -58,19 +58,21 @@ def show_hand():
 for _ in range(2):
     deal_cards(dealer_hand)
     deal_cards(player_hand)
+print(f"Dealer hand: {show_hand()} and X")
+print(f"Your hand: {player_hand} for a total of {total(player_hand)}")
 
 while playerIn or dealerIn:
-    print(f"Dealer hand: {show_hand()} and X")
-    print(f"Your hand: {player_hand} for a total of {total(player_hand)}")
 
     if playerIn:
-        stay_hit = input("\nPress the key\n1 to Stay\n2 to Hit\n")
+        stay_hit = input("\nPress the key\n1 to STAND\n2 to HIT\n")
         if stay_hit == '1':
             print("\nYou STAND")
+            print(f"\nDealer has {dealer_hand} for a total of {total(dealer_hand)}")
             playerIn = False
         else:
             print("\nYou HIT")
             deal_cards(player_hand)
+            print(f"\nYou have {player_hand} for a total of {total(player_hand)}")
             if total(player_hand) >= 21:
                 playerIn = False
                 break # End player's turn immediately on bust or reaching 21
@@ -81,6 +83,7 @@ while playerIn or dealerIn:
         while total(dealer_hand) < 17:
             print("\nDealer HITs")
             deal_cards(dealer_hand)
+            print(f"\nDealer has {dealer_hand} for a total of {total(dealer_hand)}")
             # Check after each hit if the dealer busts; if so, break immediately
             if total(dealer_hand) >= 21:
                 break
@@ -90,29 +93,19 @@ while playerIn or dealerIn:
 
 # Determine Winner
 if total(player_hand) == 21:
-    print(f"\nYou have {player_hand} for a total of {total(player_hand)}")
-    print("Blackjack!")
+    print("\nBlackjack! You Win!")
 elif total(dealer_hand) == 21:
-    print(f"\nDealer has {dealer_hand} for a total of {total(dealer_hand)}")
-    print("Blackjack!")
-elif total(player_hand) == 21 and total(dealer_hand) == 21:
-    print("Tye Game!")
+    print("\nBlackjack! Dealer Wins!")
 elif total(player_hand) > 21:
-    print(f"\nYou have {player_hand} for a total of {total(player_hand)}")
-    print(f"\nDealer has {dealer_hand} for a total of {total(dealer_hand)}")
-    print("You bust! Dealer Wins!")
+    print("\nYou bust! Dealer Wins!")
 elif total(dealer_hand) > 21:
-    print(f"\nYou have {player_hand} for a total of {total(player_hand)}")
-    print(f"\nDealer has {dealer_hand} for a total of {total(dealer_hand)}")
-    print("Dealer busts! You Win")
+    print("\nDealer busts! You Win")
 elif total(dealer_hand) > total(player_hand):
-    print(f"\nYou have {player_hand} for a total of {total(player_hand)}")
-    print(f"\nDealer has {dealer_hand} for a total of {total(dealer_hand)}")
-    print("Dealer Wins!")
+    print("\nDealer Wins!")
 elif total(dealer_hand) < total(player_hand):
-    print(f"\nYou have {player_hand} for a total of {total(player_hand)}")
-    print(f"\nDealer has {dealer_hand} for a total of {total(dealer_hand)}")
-    print("You Win!")
+    print("\nYou Win!")
+elif total(player_hand) == total(dealer_hand):
+    print("\nTye Game!")
 
 
 # Update Bankroll
