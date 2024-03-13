@@ -61,8 +61,8 @@ def main_game():
     for _ in range(2):
         deal_cards(dealer_hand)
         deal_cards(player_hand)
-    print(f"Dealer hand: {show_hand()} and X")
-    print(f"Your hand: {player_hand} for a total of {total(player_hand)}")
+    print(f"Dealer has: {show_hand()} and X")
+    print(f"You have: {player_hand} for a total of {total(player_hand)}")
 
     while playerIn or dealerIn:
 
@@ -72,13 +72,15 @@ def main_game():
                 print("\nYou STAND")
                 print(f"\nDealer has {dealer_hand} for a total of {total(dealer_hand)}")
                 playerIn = False
-            else:
+            elif stay_hit == '2':
                 print("\nYou HIT")
                 deal_cards(player_hand)
                 print(f"\nYou have {player_hand} for a total of {total(player_hand)}")
                 if total(player_hand) >= 21:
                     playerIn = False
                     break
+            else:
+                print(f"{stay_hit} is not a valid iput please enter 1 or 2")
 
         # Check if the player is no longer in the game (either by standing or busting)
         if not playerIn:
@@ -116,15 +118,17 @@ def check_winner():
 # Reset Game
 def reset_game():
     global player_hand, dealer_hand, playerIn, dealerIn
-    deal = input("\nEnter: 0 to Deal\n")
-    if deal == '0':
+    deal = input("\nEnter:\n1 Deal\n2 Go to game lobby\n")
+    if deal == '1':
             player_hand = []
             dealer_hand = []
             playerIn = True
             dealerIn = True
             main_game()
+    elif deal == '2':
+        pass
     else:
-        pass  
+        print(f"{deal} is not a valid input please enter 1 or 2")
 
 main_game()
 # Update Bankroll
