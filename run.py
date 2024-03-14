@@ -10,6 +10,8 @@ player_hand = []
 dealer_hand = []
 playerIn = True
 dealerIn = True
+bankroll = 1000
+player_win = None
 
 
 # Display welcome Message
@@ -56,13 +58,14 @@ def show_hand():
 
 # Game loop
 def main_game():
-    global player_hand, dealer_hand, playerIn, dealerIn
-    
+    global player_hand, dealer_hand, playerIn, dealerIn, bankroll
+
     for _ in range(2):
         deal_cards(dealer_hand)
         deal_cards(player_hand)
-    print(f"Dealer has: {show_hand()} and X")
+    print(f"\nDealer has: {show_hand()} and X")
     print(f"You have: {player_hand} for a total of {total(player_hand)}")
+    print(f"Bankroll: ${bankroll}")
 
     while playerIn or dealerIn:
 
@@ -94,41 +97,64 @@ def main_game():
                     break
             # After dealer acts, if they haven't busted, they're done
             dealerIn = False
-    check_winner()  
+    check_winner()
+    
 
 # Determine Winner
 def check_winner():
-    global player_hand, dealer_hand
+    global player_hand, dealer_hand, player_win
     if total(player_hand) == 21:
         print("\nBlackjack! You Win!")
+        player_win = True
     elif total(dealer_hand) == 21:
         print("\nBlackjack! Dealer Wins!")
+        player_win = False
     elif total(player_hand) > 21:
         print("\nYou bust! Dealer Wins!")
+        player_win = False
     elif total(dealer_hand) > 21:
         print("\nDealer busts! You Win")
+        player_win = True
     elif total(dealer_hand) > total(player_hand):
         print("\nDealer Wins!")
+        player_win = False
     elif total(dealer_hand) < total(player_hand):
         print("\nYou Win!")
+        player_win = True
     elif total(player_hand) == total(dealer_hand):
         print("\nTye Game!")
+    bet()
     reset_game()
+    
 
 # Reset Game
 def reset_game():
-    global player_hand, dealer_hand, playerIn, dealerIn
+    global player_hand, dealer_hand, playerIn, dealerIn, player_win
     deal = input("\nEnter:\n1 Deal\n2 Go to game lobby\n")
     if deal == '1':
             player_hand = []
             dealer_hand = []
             playerIn = True
             dealerIn = True
+            player_win = None
             main_game()
     elif deal == '2':
         pass
     else:
         print(f"{deal} is not a valid input please enter 1 or 2")
 
+# Betting
+def bet():
+    global player_win, bankroll
+    if player_win:
+        bankroll += 100
+        print("\nCongratulations! You won the bet.")
+    else:
+        bankroll -= 100
+        print("\nYou lost the bet.")
+    print(f"Bankroll: ${bankroll}")
+
+
+
+
 main_game()
-# Update Bankroll
