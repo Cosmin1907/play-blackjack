@@ -65,7 +65,9 @@ def main_game():
     print(f"\nDealer has: {show_hand()} and X")
     print(f"You have: {player_hand} for a total of {total(player_hand)}")
     print(f"Bankroll: ${bankroll}")
-    check_winner()
+    if total(player_hand) == 21:
+        check_winner()
+        return
 
     while playerIn or dealerIn:
 
