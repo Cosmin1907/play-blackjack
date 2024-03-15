@@ -2,6 +2,7 @@ import pyfiglet
 import random
 import copy
 import os
+import time
 
 # Global variables
 player_hand = []
@@ -76,6 +77,7 @@ def main_game():
             elif stay_hit == '2':
                 print("\nYou HIT")
                 deal_cards(player_hand)
+                time.sleep(1)
                 print(f"\nYou have {player_hand} for a total of {total(player_hand)}")
                 if total(player_hand) >= 21:
                     playerIn = False
@@ -87,13 +89,13 @@ def main_game():
                 print(f"You have: {player_hand} for a total of {total(player_hand)}")
                 print(f"Bankroll: ${bankroll}")
 
-
         # Check if the player is no longer in the game (either by standing or busting)
         if not playerIn:
             # Dealer must hit if total is less than 17, according to Blackjack rules
             while total(dealer_hand) < 17:
                 print("\nDealer HITs")
                 deal_cards(dealer_hand)
+                time.sleep(1)
                 print(f"\nDealer has {dealer_hand} for a total of {total(dealer_hand)}")
                 # Check after each hit if the dealer busts; if so, break immediately
                 if total(dealer_hand) >= 21:
