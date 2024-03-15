@@ -23,7 +23,7 @@ print(result)
 # Initialize Deck
 cards = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A']
 one_deck = 4 * cards
-decks = 1
+decks = 4
 game_deck = copy.deepcopy(decks * one_deck)
 #print(game_deck)
 
@@ -77,7 +77,8 @@ def main_game():
         if playerIn:
             stay_hit = input("\nEnter:\n1 to STAND\n2 to HIT\n")
             if stay_hit == '1':
-                print("\nYou STAND")
+                os.system('clear')
+                print(f"\nYou STAND on {total(player_hand)}")
                 print(f"\nDealer has {dealer_hand} for a total of {total(dealer_hand)}")
                 playerIn = False
             elif stay_hit == '2':
@@ -103,6 +104,7 @@ def main_game():
                 deal_cards(dealer_hand)
                 time.sleep(1)
                 print(f"\nDealer has {dealer_hand} for a total of {total(dealer_hand)}")
+                time.sleep(1)
                 # Check after each hit if the dealer busts; if so, break immediately
                 if total(dealer_hand) >= 21:
                     break
