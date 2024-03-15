@@ -14,18 +14,70 @@ playerIn = True
 dealerIn = True
 bankroll = 1000
 player_win = None
-
-
-# Display welcome Message
-result = pyfiglet.figlet_format("   Blackjack   ", font = "digital")
-print(result)
-
 # Initialize Deck
 cards = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A']
 one_deck = 4 * cards
 decks = 4
 game_deck = copy.deepcopy(decks * one_deck)
-#print(game_deck)
+
+
+# Game Lobby
+def enter_game():
+    while True:
+        result = pyfiglet.figlet_format("Welcome to Casino Royale", font="digital")
+        colored_result = Back.GREEN + Fore.BLACK + Style.BRIGHT + result
+        # Print the colored ASCII art
+        print(colored_result)
+        print("You are seated at a Blackjack table")
+        print("Before input() function")
+        play = input(f"\nEnter:\n1 to PLAY\n2 for Instructions\n")
+        print("After input() function")
+        print("User input:", play)
+        if play == '1':
+            os.system('clear')
+            main_game()
+            break
+        elif play == '2':
+            os.system('clear')
+            instructions()
+            break
+        else:
+            os.system('clear')
+            print(f"{play} is not a valid input please enter 1 or 2\n")
+       
+
+def instructions():
+    print("\nHere are the rules:\n")
+    print("1. Goal: Get cards that add up close to 21 without going over.")
+    print("2. Card Values:")
+    print("   - Number cards are worth their number.")
+    print("   - Face cards (Jacks, Queens, Kings) are worth 10.")
+    print("   - Aces can be 1 or 11.")
+    print("3. Gameplay:")
+    print("   - You get two cards to start.")
+    print("   - You can 'hit' to get another card or 'stand' to keep your cards.")
+    print("   - If your cards add up to more than 21, you lose ('bust').")
+    print("   - The dealer also gets two cards and follows rules for hitting or standing. (Dealer stands on 17)")
+    print("4. Winning:")
+    print("   - If the dealer busts, you win automatically.")
+    print("   - The one closest to 21 without going over wins.")
+    print("   - If you get exactly 21, it's called a 'blackjack,' and you win")
+    print("5. Tie Game:")
+    print("   - If you and the dealer have the same total, it's a tie, and you get your bet back.")
+    while True:
+        play = input(f"\nEnter:\n1 to PLAY\n2 Go to game Lobby\n")
+        if play == '1':
+            os.system('clear')
+            main_game()
+            break
+        elif play == '2':
+            os.system('clear')
+            enter_game()
+            break
+        else: 
+            os.system('clear')
+            print(f"{play} is not a valid input please enter 1 or 2\n")
+
 
 # Deal Cards
 def deal_cards(turn):
@@ -65,7 +117,7 @@ def main_game():
     for _ in range(2):
         deal_cards(dealer_hand)
         deal_cards(player_hand)
-    print(Back.GREEN + Fore.BLACK + Style.BRIGHT + f"\nDealer has: {show_hand()} and X")
+    print(f"\nDealer has: {show_hand()} and X")
     print(f"You have: {player_hand} for a total of {total(player_hand)}")
     print(f"Bankroll: ${bankroll}")
     if total(player_hand) == 21:
@@ -144,7 +196,7 @@ def check_winner():
 def reset_game():
     global player_hand, dealer_hand, playerIn, dealerIn, player_win
     while True: 
-        deal = input("\nEnter:\n1 Deal\n2 Go to game lobby\n")
+        deal = input("\nEnter:\n1 Deal\n2 Go to game Lobby\n")
         if deal == '1':
             player_hand = []
             dealer_hand = []
@@ -155,6 +207,8 @@ def reset_game():
             main_game()
             break
         elif deal == '2':
+            os.system('clear')
+            enter_game()
             break
         else:
             os.system('clear')
@@ -174,6 +228,5 @@ def bet():
     print(f"Bankroll: ${bankroll}")
 
 
-
-main_game()
+enter_game()
 
