@@ -3,6 +3,9 @@ import random
 import copy
 import os
 import time
+from colorama import just_fix_windows_console, Fore, Back, Style
+just_fix_windows_console()
+
 
 # Global variables
 player_hand = []
@@ -62,7 +65,7 @@ def main_game():
     for _ in range(2):
         deal_cards(dealer_hand)
         deal_cards(player_hand)
-    print(f"\nDealer has: {show_hand()} and X")
+    print(Back.GREEN + Fore.BLACK + Style.BRIGHT + f"\nDealer has: {show_hand()} and X")
     print(f"You have: {player_hand} for a total of {total(player_hand)}")
     print(f"Bankroll: ${bankroll}")
     if total(player_hand) == 21:
@@ -130,7 +133,7 @@ def check_winner():
         print("\nYou Win!")
         player_win = True
     elif total(player_hand) == total(dealer_hand):
-        print("\nTye Game!")
+        print("\nTie Game!")
     bet()
     reset_game()
     
@@ -170,6 +173,5 @@ def bet():
 
 
 
-
-
 main_game()
+
