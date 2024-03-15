@@ -158,12 +158,14 @@ def reset_game():
 # Betting
 def bet():
     global player_win, bankroll
-    if player_win:
+    if player_win == True:
         bankroll += 100
         print("\nCongratulations! You won the bet.")
-    elif not player_win:
+    elif player_win == False:
         bankroll -= 100
         print("\nYou lost the bet.")
+    elif player_win == None:
+        print("\nYour bet is returned.")
     print(f"Bankroll: ${bankroll}")
 
 
