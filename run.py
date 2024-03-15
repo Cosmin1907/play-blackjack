@@ -1,11 +1,9 @@
 import pyfiglet
 import random
 import copy
+import os
 
 # Global variables
-records = [0, 0, 0]
-player_score = 0
-dealer_score = 0
 player_hand = []
 dealer_hand = []
 playerIn = True
@@ -83,7 +81,12 @@ def main_game():
                     playerIn = False
                     break
             else:
-                print(f"{stay_hit} is not a valid iput please enter 1 or 2")
+                os.system('clear')
+                print(f"{stay_hit} is not a valid input please enter 1 or 2\n")
+                print(f"\nDealer has: {show_hand()} and X")
+                print(f"You have: {player_hand} for a total of {total(player_hand)}")
+                print(f"Bankroll: ${bankroll}")
+
 
         # Check if the player is no longer in the game (either by standing or busting)
         if not playerIn:
@@ -130,18 +133,22 @@ def check_winner():
 # Reset Game
 def reset_game():
     global player_hand, dealer_hand, playerIn, dealerIn, player_win
-    deal = input("\nEnter:\n1 Deal\n2 Go to game lobby\n")
-    if deal == '1':
+    while True: 
+        deal = input("\nEnter:\n1 Deal\n2 Go to game lobby\n")
+        if deal == '1':
             player_hand = []
             dealer_hand = []
             playerIn = True
             dealerIn = True
             player_win = None
+            os.system('clear')
             main_game()
-    elif deal == '2':
-        pass
-    else:
-        print(f"{deal} is not a valid input please enter 1 or 2")
+            break
+        elif deal == '2':
+            break
+        else:
+            os.system('clear')
+            print(f"{deal} is not a valid input please enter 1 or 2\n")
 
 # Betting
 def bet():
@@ -149,10 +156,11 @@ def bet():
     if player_win:
         bankroll += 100
         print("\nCongratulations! You won the bet.")
-    else:
+    elif not player_win:
         bankroll -= 100
         print("\nYou lost the bet.")
     print(f"Bankroll: ${bankroll}")
+
 
 
 
