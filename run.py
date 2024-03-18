@@ -23,24 +23,23 @@ game_deck = copy.deepcopy(decks * one_deck)
 
 # Game Lobby
 def enter_game():
+
     while True:
         result = pyfiglet.figlet_format("Welcome to Casino Royale", font="digital")
         colored_result = Back.GREEN + Fore.BLACK + Style.BRIGHT + result
         # Print the colored ASCII art
         print(colored_result)
         print("You are seated at a Blackjack table")
-        print("Before input() function")
         play = input(f"\nEnter:\n1 to PLAY\n2 for Instructions\n")
-        print("After input() function")
-        print("User input:", play)
+        
         if play == '1':
             os.system('clear')
             main_game()
-            break
+            return
         elif play == '2':
             os.system('clear')
             instructions()
-            break
+            return
         else:
             os.system('clear')
             print(f"{play} is not a valid input please enter 1 or 2\n")
@@ -66,17 +65,17 @@ def instructions():
     print("   - If you and the dealer have the same total, it's a tie, and you get your bet back.")
     while True:
         play = input(f"\nEnter:\n1 to PLAY\n2 Go to game Lobby\n")
-        if play == '1':
+        if play in ('1', '2'):
             os.system('clear')
-            main_game()
-            break
-        elif play == '2':
-            os.system('clear')
-            enter_game()
-            break
+            if play == '1':
+                main_game()
+            else:
+                enter_game()
+                return 
         else: 
             os.system('clear')
             print(f"{play} is not a valid input please enter 1 or 2\n")
+            
 
 
 # Deal Cards
@@ -114,12 +113,19 @@ def show_hand():
 def main_game():
     global player_hand, dealer_hand, playerIn, dealerIn, bankroll
 
+    player_hand = []
+    dealer_hand = []
+
     for _ in range(2):
         deal_cards(dealer_hand)
+    for _ in range(2):
         deal_cards(player_hand)
+
     print(f"\nDealer has: {show_hand()} and X")
     print(f"You have: {player_hand} for a total of {total(player_hand)}")
     print(f"Bankroll: ${bankroll}")
+    
+
     if total(player_hand) == 21:
         check_winner()
         return
