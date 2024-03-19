@@ -30,6 +30,7 @@ def enter_game():
         # Print the colored ASCII art
         print(colored_result)
         print("You are seated at a Blackjack table")
+        print("You will receive 10000 credits\nYour standard bet is 100")
         play = input(f"\nEnter:\n1 to PLAY\n2 for Instructions\n")
         
         if play == '1':
@@ -46,23 +47,23 @@ def enter_game():
        
 
 def instructions():
-    print("\nHere are the rules:\n")
+    print("\nWelcome to the rules:\n")
     print("1. Goal: Get cards that add up close to 21 without going over.")
     print("2. Card Values:")
     print("   - Number cards are worth their number.")
     print("   - Face cards (Jacks, Queens, Kings) are worth 10.")
-    print("   - Aces can be 1 or 11.")
+    print("   - Aces can be 1 or 11. On the first hand, 2 aces = 12, offering the best hand.")
     print("3. Gameplay:")
     print("   - You get two cards to start.")
     print("   - You can 'hit' to get another card or 'stand' to keep your cards.")
     print("   - If your cards add up to more than 21, you lose ('bust').")
-    print("   - The dealer also gets two cards and follows rules for hitting or standing. (Dealer stands on 17)")
+    print("   - The dealer also gets two cards and follows rules for hit/stand rules, stands on 17")
     print("4. Winning:")
     print("   - If the dealer busts, you win automatically.")
     print("   - The one closest to 21 without going over wins.")
-    print("   - If you get exactly 21, it's called a 'blackjack,' and you win")
+    print("   - If you get exactly 21, it's called a 'blackjack', and you win 1.5 your bet")
     print("5. Tie Game:")
-    print("   - If you and the dealer have the same total, it's a tie, and you get your bet back.")
+    print("   - If you and the dealer tie ('push'), you get your bet back")
     while True:
         play = input(f"\nEnter:\n1 to PLAY\n2 Go to game Lobby\n")
         if play in ('1', '2'):
