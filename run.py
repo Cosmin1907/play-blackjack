@@ -95,16 +95,20 @@ def deal_cards(turn):
 # Calculate Hand Value
 def total(turn):
     total = 0
+    num_aces = 0
     for card in turn:
         if card.isdigit():
             total += int(card)
         elif card in ['J', 'K', 'Q']:
             total += 10
-        else:
+        elif card == 'A':
+            num_aces += 1
             if total > 11:
                 total += 1
             else:
                 total += 11
+        if num_aces == 2 and total > 21:
+            total -= 10
     return total
 
 
