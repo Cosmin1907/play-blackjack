@@ -80,6 +80,12 @@ def instructions():
 
 # Deal Cards
 def deal_cards(turn):
+    global game_deck, one_deck
+
+    if not game_deck:
+        print("No cards left in the deck! Reshuffling ...")
+        time.sleep(1.5)
+        game_deck = copy.deepcopy(decks * one_deck)
     card = random.choice(game_deck)
     turn.append(card)
     game_deck.remove(card)
