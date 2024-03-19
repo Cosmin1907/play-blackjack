@@ -12,7 +12,7 @@ player_hand = []
 dealer_hand = []
 playerIn = True
 dealerIn = True
-bankroll = 1000
+bankroll = 10000
 player_win = None
 # Initialize Deck
 cards = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A']
@@ -231,7 +231,10 @@ def reset_game():
 def bet():
     global player_win, bankroll
     if player_win == True:
-        bankroll += 100
+        if total(player_hand) == 21:
+            bankroll += 150
+        else:
+            bankroll += 100
         print("\nCongratulations! You won the bet.")
     elif player_win == False:
         bankroll -= 100
