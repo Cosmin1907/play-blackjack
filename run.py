@@ -17,7 +17,7 @@ player_win = None
 # Initialize Deck
 cards = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A']
 one_deck = 4 * cards
-decks = 1
+decks = 6
 game_deck = copy.deepcopy(decks * one_deck)
 
 
@@ -29,8 +29,10 @@ def enter_game():
         colored_result = Back.GREEN + Fore.BLACK + Style.BRIGHT + result
         # Print the colored ASCII art
         print(colored_result)
-        print("You are seated at a Blackjack table")
-        print("You will receive 10000$ \nYour standard bet is 100$")
+        print("You are seated at a Blackjack table.")
+        print("You will be credited with $10,000. Your standard bet is $100.")
+        print("The game will be played with six decks of cards.")
+        print("\nGood luck!")
         play = input(f"\nEnter:\n1 to PLAY\n2 for Instructions\n")
         
         if play == '1':
