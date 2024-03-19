@@ -17,7 +17,7 @@ player_win = None
 # Initialize Deck
 cards = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A']
 one_deck = 4 * cards
-decks = 4
+decks = 1
 game_deck = copy.deepcopy(decks * one_deck)
 
 
@@ -118,13 +118,14 @@ def main_game():
 
     for _ in range(2):
         deal_cards(dealer_hand)
-    for _ in range(2):
         deal_cards(player_hand)
+
+    cards_left = len(game_deck)
 
     print(f"\nDealer has: {show_hand()} and X")
     print(f"You have: {player_hand} for a total of {total(player_hand)}")
     print(f"Bankroll: ${bankroll}")
-    
+    print(f"Cards left to deal: {cards_left}")
 
     if total(player_hand) == 21:
         check_winner()
