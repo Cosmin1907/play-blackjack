@@ -1,32 +1,126 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Blackjack
 
-Welcome,
+Blackjack, also known as twenty-one, is a classic card game renowned for its blend of strategy and luck. Players strive to outscore the dealer without surpassing 21. The game's simplicity and suspense, combined with its strategic depth, make blackjack a beloved favorite among players of all skill levels.
 
-This is the Code Institute student template for deploying your third portfolio project, the Python command-line project. The last update to this file was: **March 14, 2023**
+By building the game with Code Institute's Python Template, it offers the flexibility to run online rather than solely on a CLI or Command Line Interface.
 
-## Reminders
+![responsive image]()
 
-- Your code must be placed in the `run.py` file
-- Your dependencies must be placed in the `requirements.txt` file
-- Do not edit any of the other files or your code may not deploy properly
 
-## Creating the Heroku app
+## How to play
 
-When you create the app, you will need to add two buildpacks from the _Settings_ tab. The ordering is as follows:
+To play blackjack, each player is dealt two cards face-up, while the dealer receives one card face-up and one face-down. The goal is to get a hand total closer to 21 than the dealer without going over. Players can choose to "hit" to receive another card, "stand" to keep their current hand. The game blends luck and strategy, as players must decide when to take risks and when to play it safe. 
 
-1. `heroku/python`
-2. `heroku/nodejs`
+## User Experience
 
-You must then create a _Config Var_ called `PORT`. Set this to `8000`
+### Site Goals
+- 
 
-If you have credentials, such as in the Love Sandwiches project, you must create another _Config Var_ called `CREDS` and paste the JSON into the value field.
+### User Goals
+- 
 
-Connect your GitHub repository and deploy as normal.
+## Structure
 
-## Constraints
 
-The deployment terminal is set to 80 columns by 24 rows. That means that each line of text needs to be 80 characters or less otherwise it will be wrapped onto a second line.
+## Features
 
----
 
-Happy coding!
+
+### Welcome Message
+
+- 
+
+![welcome message image]()
+
+- Invalid input (if the user inserts non-alphabetic characters)
+
+![invalid input image]()
+
+- Invalid input (if the user left the input blank)
+
+![invalid input image 2]()
+
+
+### Game
+
+- 
+
+  ![the image]( )
+
+- 
+
+![playing  image]()
+
+- I
+  ![input image]()
+  - Entering coordinates outside the size of the grid or using non-numerical coordinates.
+
+  ![image]()
+
+ - 
+
+ ### Future Futures
+
+ - 
+
+ ## Data model
+
+ - 
+
+
+ ## Testing
+
+ ### Validator Testing
+
+ - The python code is free of errors and written correctly, validation through the PEP8 online validator was performed with no errors or warnings raised.
+ ![pep8 validator image]()
+
+
+### Manual Testing
+
+- 
+
+## Bugs
+
+- 
+
+## Remaining bugs
+
+
+
+## Technologies Used
+
+### Languages
+[Python](https://www.python.org/)
+
+### Python Libraries
+
+[Random](https://docs.python.org/3/library/random.html) - A Python library used to generate random integers in the game.
+
+### Programs & Libraries
+- [Git](https://git-scm.com/) -  Git was used through the Gitpod terminal to commit to Git and push to GitHub.
+- [GitHub](https://github.com/) - All code for the site is stored on GitHub after being pushed from Git.
+- [Heroku](https://id.heroku.com/login) - Used for hosting the game.
+- [Patorjk ASCII Art Generator](https://patorjk.com/software/taag/#p=display&f=Graffiti&t=Type%20Something%20) - The ASCII art used in the game was generated with this app.
+- [PEP8 Online Validator](https://pep8ci.herokuapp.com/) - Validation of Python code was done with PEP8 Online.
+
+
+
+## Deployment
+
+ The game was deployed using Heroku. 
+ - Steps for deployment:
+   - Go to Heroku's website at https://www.heroku.com and sign up/log in.
+   - Click on the New button near the top right corner, and select Create new app.
+   - Name the project and set the region to the relevant one, then click the ```Create app``` button.
+   - Click on ```Add buildpack``` and add ```Python```, click ```Save changes```. Repeat the process for ```nodejs``` and make sure they are in the correct order, with ```Python``` coming first.
+   - Next, navigate to the ```Deploy``` tab and under ```Deployment method``` connect to your GitHub account.
+   - Directly below Deployment method there is a search bar to search for your repository. Connect the correct one to Heroku by clicking the ```Connect``` button.
+   - Scroll down to Manual deploy and click ```Deploy Branch```, making sure that the main branch is selected.
+   - To enable automatic updates to the project, simply scroll up to Automatic deploys and click the ```Enable Automatic Deploys``` button.
+   - My project is now hosted on Heroku.
+   - The live link can be found here - [Battleships](https://battleships1-396329e2c61c.herokuapp.com/?fbclid=IwAR1bs1Vj-TFd_oDXeGFi3tM1wOuhiQ6bcZUB2ttsUrTyi0hhcWlu20mN-UY)
+
+   ## Credits
+
+   - 
