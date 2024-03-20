@@ -22,8 +22,13 @@ game_deck = copy.deepcopy(decks * one_deck)
 
 
 # Game Lobby
-def enter_game():
+def enter_game(): 
+    """
+    Initiate player's entry into Blackjack game.
 
+    Display welcome message and game rules, allowing
+    user to start game or view instructions.
+    """
     while True:
         result = pyfiglet.figlet_format("Welcome to Casino Royale", font="digital")
         colored_result = Back.GREEN + Fore.BLACK + Style.BRIGHT + result
@@ -34,7 +39,6 @@ def enter_game():
         print("The game will be played with six decks of cards.")
         print("\nGood luck!")
         play = input(f"\nEnter:\n1 to PLAY\n2 for Instructions\n")
-        
         if play == '1':
             os.system('clear')
             main_game()
@@ -49,6 +53,11 @@ def enter_game():
        
 
 def instructions():
+    """
+    Display Blackjack rules and options.
+
+    Prompts the player to start game or return to lobby.
+    """
     print("\nWelcome to the rules:\n")
     print("1. Goal: Get cards that add up close to 21 without going over")
     print("2. Card Values:")
@@ -83,6 +92,19 @@ def instructions():
 
 # Deal Cards
 def deal_cards(turn):
+    """
+    Deal a card to the player's hand.
+
+    Parameters
+    ----------
+    turn : list
+        The player's hand.
+
+    Returns
+    -------
+    str
+        The card that was dealt.
+    """
     global game_deck, one_deck
 
     if not game_deck:
@@ -97,6 +119,19 @@ def deal_cards(turn):
 
 # Calculate Hand Value
 def total(turn):
+    """
+    Calculate the total value of the player's hand.
+
+    Parameters
+    ----------
+    turn : list
+        The player's hand.
+
+    Returns
+    -------
+    int
+        The total value of the player's hand.
+    """
     total = 0
     num_aces = 0
     for card in turn:
@@ -117,6 +152,14 @@ def total(turn):
 
 # Display Hands
 def show_hand():
+    """
+    Display the dealer's hand.
+
+    Returns
+    -------
+    If the dealer has two cards, returns the first card.
+    If the dealer has more than two cards, returns the first two cards.
+    """
     if len(dealer_hand) == 2:
         return dealer_hand[0]
     elif len(dealer_hand) > 2:
@@ -124,6 +167,16 @@ def show_hand():
 
 # Game loop
 def main_game():
+    """
+    Run the main game logic.
+
+    Actions:
+    - Initialize the player's and dealer's hands with two cards each.
+    - Display the dealer's visible card and the player's hand.
+    - Prompt the player to hit or stand.
+    - Implement the hitting mechanism for the dealer.
+    - Check for a winner after the initial hand deal and after the player and dealer play.
+    """
     global player_hand, dealer_hand, playerIn, dealerIn, bankroll
 
     player_hand = []
@@ -140,6 +193,7 @@ def main_game():
     print(f"Bankroll: ${bankroll}")
     print(f"Cards left to deal: {cards_left}")
 
+    #check if the player has 21 on the first hand
     if total(player_hand) == 21:
         check_winner()
         return
@@ -187,6 +241,9 @@ def main_game():
 
 # Determine Winner
 def check_winner():
+    """
+    Checks for a winner and updates player status.
+    """
     global player_hand, dealer_hand, player_win
     if total(player_hand) == 21:
         print("\nBlackjack! You Win!")
@@ -214,6 +271,9 @@ def check_winner():
 
 # Reset Game
 def reset_game():
+    """
+    Resets the game state or returns to the game lobby based on user input.
+    """
     global player_hand, dealer_hand, playerIn, dealerIn, player_win
     while True: 
         deal = input("\nEnter:\n1 Deal\n2 Go to game Lobby\n")
@@ -236,6 +296,9 @@ def reset_game():
 
 # Betting
 def bet():
+    """
+    Manages the player's bet and updates the bankroll.
+    """
     global player_win, bankroll
     if player_win == True:
         if total(player_hand) == 21:
