@@ -149,6 +149,24 @@ In this section, I'll offer a brief summary of the features included in the blac
    - My project is now hosted on Heroku.
    - The live link can be found here - [Blackjack](https://play-blackjack-c03d4ce79b7f.herokuapp.com/)
 
-   ## Credits
+## Credits
 
-   - 
+I drew inspiration and incorporated code from:
+
+[Code Coach](https://youtu.be/mpL0Y01v6tY?si=OhQaz7PRaGz02qxM)
+
+[LeMaster Tech](https://youtu.be/e3YkdOXhFpQ?si=n4RfvmGltE9G03MR)
+
+[PyPi](https://pypi.org/project/colorama/)
+
+[Real Python](https://realpython.com/python-sleep/)
+
+[Geeksforgeeks](https://www.geeksforgeeks.org/python-ascii-art-using-pyfiglet-module/)
+
+- **Content**
+
+- Wikipedia was used for inspiration to write the game rules.
+
+  [Blackjack Wikipedia](https://en.wikipedia.org/wiki/Blackjack)
+
+   
