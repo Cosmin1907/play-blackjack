@@ -98,19 +98,30 @@ In this section, I'll offer a brief summary of the features included in the blac
 ## Technologies Used
 
 ### Languages
+
 [Python](https://www.python.org/)
 
-### Python Libraries
+### Python Libraries and Modules
 
-[Random](https://docs.python.org/3/library/random.html) - A Python library used to generate random integers in the game.
+[Random](https://docs.python.org/3/library/random.html) - The random module provides functions for generating random numbers and making random selections in Python.
+
+[Pyfiglet](https://pypi.org/project/pyfiglet/) - Pyfiglet is a Python library for generating ASCII art text with various font styles.
+
+[Copy](https://docs.python.org/3/library/copy.html) - The copy module offers functions for creating copies of objects in Python, both shallow and deep copies.
+
+[OS](https://docs.python.org/3/library/os.html) - The os module provides functions for interacting with the operating system, such as file handling and system commands, in a portable way.
+
+[Time](https://docs.python.org/3/library/time.html) - The time module offers functions for working with time-related operations, such as measuring time intervals and handling timestamps, in Python.
+
+[Colorama](https://pypi.org/project/colorama/) - Colorama is a Python library that simplifies adding colored output and styling to terminal text. 
 
 ### Programs & Libraries
+
 - [Git](https://git-scm.com/) -  Git was used through the Gitpod terminal to commit to Git and push to GitHub.
 - [GitHub](https://github.com/) - All code for the site is stored on GitHub after being pushed from Git.
 - [Heroku](https://id.heroku.com/login) - Used for hosting the game.
-- [Patorjk ASCII Art Generator](https://patorjk.com/software/taag/#p=display&f=Graffiti&t=Type%20Something%20) - The ASCII art used in the game was generated with this app.
+- [ASCII]() - The ASCII art used in the game was generated with this app.
 - [PEP8 Online Validator](https://pep8ci.herokuapp.com/) - Validation of Python code was done with PEP8 Online.
-
 
 
 ## Deployment
