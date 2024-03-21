@@ -13,14 +13,21 @@ To play blackjack, each player is dealt two cards face-up, while the dealer rece
 
 ## User Experience
 
-### Site Goals
-- 
+### Developer Goals
+
+- Create a traditional blackjack game in Python that accurately reflects the rules and mechanics of the game.
+- Implement an intuitive user interface that allows players to easily understand and interact with the game.
+- Ensure the game provides an enjoyable and immersive experience for players, capturing the excitement of playing blackjack in a real casino environment.
 
 ### User Goals
-- 
+
+- Experience the thrill of playing blackjack in a virtual setting.
+- Understand the rules and objectives of the game clearly, facilitating smooth gameplay.
+- Enjoy a challenging and entertaining gaming experience that simulates the excitement of traditional blackjack.
 
 ## Structure
 
+- The game structure is designed to be as simple as possible, enabling easy navigation through user input and ensuring straightforward gameplay with minimal interaction required from the user.
 
 ## Features
 
