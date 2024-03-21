@@ -38,7 +38,7 @@ def enter_game():
         print("You will be credited with $10,000. Your standard bet is $100.")
         print("The game will be played with six decks of cards.")
         print("\nGood luck!")
-        play = input(f"\nEnter:\n1 to PLAY\n2 for Instructions\n")
+        play = input(f"\nENTER:\n1 TO PLAY\n2 FOR GAME RULES\n")
         if play == '1':
             os.system('clear')
             main_game()
@@ -76,7 +76,7 @@ def instructions():
     print("5. Tie Game:")
     print("   - If you and the dealer tie ('push'), you get your bet back")
     while True:
-        play = input(f"\nEnter:\n1 to PLAY\n2 Go to game Lobby\n")
+        play = input(f"\nENTER:\n1 TO PLAY\n2 GO TO GAME LOBBY\n")
         if play in ('1', '2'):
             os.system('clear')
             if play == '1':
@@ -201,7 +201,7 @@ def main_game():
     while playerIn or dealerIn:
 
         if playerIn:
-            stay_hit = input("\nEnter:\n1 to STAND\n2 to HIT\n")
+            stay_hit = input("\nENTER:\n1 TO STAND\n2 TO HIT\n")
             if stay_hit == '1':
                 os.system('clear')
                 print(f"\nYou STAND on {total(player_hand)}")
@@ -276,7 +276,7 @@ def reset_game():
     """
     global player_hand, dealer_hand, playerIn, dealerIn, player_win
     while True: 
-        deal = input("\nEnter:\n1 Deal\n2 Go to game Lobby\n")
+        deal = input("\nENTER:\n1 DEAL\n2 GO TO GAME LOBBY\n")
         if deal == '1':
             player_hand = []
             dealer_hand = []

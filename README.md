@@ -24,11 +24,11 @@ To play blackjack, each player is dealt two cards face-up, while the dealer rece
 
 ## Features
 
-
+In this section, I'll offer a brief summary of the features included in the blackjack game.
 
 ### Welcome Message
 
-- 
+- Upon starting the game, users are greeted with an welcome message rendered in ASCII art through the Pyfiglet module. They are then provided with a brief overview of how the game functions, along with the choice to either initiate gameplay right away or take a closer look at the game rules first.
 
 ![welcome message image]()
 
@@ -53,7 +53,7 @@ To play blackjack, each player is dealt two cards face-up, while the dealer rece
 
 - I
   ![input image]()
-  - Entering coordinates outside the size of the grid or using non-numerical coordinates.
+  - 
 
   ![image]()
 
