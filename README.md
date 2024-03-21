@@ -92,7 +92,10 @@ In this section, I'll offer a brief summary of the features included in the blac
 
 ### Manual Testing
 
-- 
+- Manual testing was done throughout the developing process, where all user inputs have the desired effect. If a user input is invalid, a relevant message will tell the user what to input instead.
+- Testing was performed in both the Gitpod terminal and Code Institutes Heroku mock terminal in several different browsers, such as Chrome, Edge and Firefox.
+- All features respond as expected and give the correct error messages when user input is invalid.
+- Additionally, I conducted rigorous hard-coded testing to validate various specific game scenarios, all of which have been documented in the accompanying images below.
 
 ## Bugs
 
