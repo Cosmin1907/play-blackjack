@@ -75,7 +75,7 @@ In this section, I'll offer a brief summary of the features included in the blac
 
  ### Future Futures
 
- - 
+ - Future features will include offering the player the possibility to split hands and control the betting amount.
 
  ## Data model
 
@@ -96,11 +96,11 @@ In this section, I'll offer a brief summary of the features included in the blac
 
 ## Bugs
 
-- 
+- The most notable bug encountered during testing occurred when both the player and dealer were dealt more than three cards each in the initial hand. This issue has been effectively resolved by adjusting the code to reset the player and dealer hands within the main game loop, ensuring a fresh start with each new hand.
 
 ## Remaining bugs
 
-
+- All bugs have been successfully addressed and resolved.
 
 ## Technologies Used
 
