@@ -316,6 +316,4 @@ def bet():
         print("\nYour bet is returned.")
     print(f"Bankroll: ${bankroll}")
 
-
 enter_game()
-

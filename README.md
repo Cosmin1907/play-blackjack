@@ -4,7 +4,7 @@ Blackjack, also known as twenty-one, is a classic card game renowned for its ble
 
 By building the game with Code Institute's Python Template, it offers the flexibility to run online rather than solely on a CLI or Command Line Interface.
 
-![responsive image]()
+![responsive image](documentation/mockup.PNG)
 
 
 ## How to play
@@ -26,22 +26,19 @@ To play blackjack, each player is dealt two cards face-up, while the dealer rece
 
 In this section, I'll offer a brief summary of the features included in the blackjack game.
 
-### Welcome Message
+### Game Lobby
 
 - Upon starting the game, users are greeted with an welcome message rendered in ASCII art through the Pyfiglet module. They are then provided with a brief overview of how the game functions, along with the choice to either initiate gameplay right away or take a closer look at the game rules first.
 
-![welcome message image]()
+![welcome message image](documentation/welcome.PNG)
 
-- Invalid input (if the user inserts non-alphabetic characters)
+### Game Rules
 
-![invalid input image]()
+- In this section, the rules of the game are clearly explained in a concise manner, and the user is given another choice through the game menu to either return to the game lobby or initiate gameplay.
 
-- Invalid input (if the user left the input blank)
+![game rules](documentation/rules.PNG)
 
-![invalid input image 2]()
-
-
-### Game
+### Gameplay
 
 - 
 
@@ -58,6 +55,16 @@ In this section, I'll offer a brief summary of the features included in the blac
   ![image]()
 
  - 
+
+### Invalid input
+
+ - Invalid input (If the user's input is any character other than the provided options.)
+
+![invalid input image](documentation/wronginput.PNG)
+
+- Invalid input,  the screen is cleared, and the user is prompted again.
+
+![invalid input image 2](documentation/wronginput2.PNG)
 
  ### Future Futures
 
@@ -119,7 +126,7 @@ In this section, I'll offer a brief summary of the features included in the blac
    - Scroll down to Manual deploy and click ```Deploy Branch```, making sure that the main branch is selected.
    - To enable automatic updates to the project, simply scroll up to Automatic deploys and click the ```Enable Automatic Deploys``` button.
    - My project is now hosted on Heroku.
-   - The live link can be found here - [Battleships](https://battleships1-396329e2c61c.herokuapp.com/?fbclid=IwAR1bs1Vj-TFd_oDXeGFi3tM1wOuhiQ6bcZUB2ttsUrTyi0hhcWlu20mN-UY)
+   - The live link can be found here - [Blackjack](https://play-blackjack-c03d4ce79b7f.herokuapp.com/)
 
    ## Credits
 
