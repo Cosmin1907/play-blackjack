@@ -190,6 +190,9 @@ def main_game():
 
     player_hand = []
     dealer_hand = []
+    playerIn = True
+    dealerIn = True
+    player_win = None
 
     for _ in range(2):
         deal_cards(dealer_hand)
@@ -204,7 +207,9 @@ def main_game():
 
     # check if the player has 21 on the first hand
     if total(player_hand) == 21:
+        print("Roo Check winner")
         check_winner()
+        print("Roo Check Winner End")
         return
 
     while playerIn or dealerIn:
@@ -249,7 +254,9 @@ of {total(dealer_hand)}")
                     break
             # After dealer acts, if they haven't busted, they're done
             dealerIn = False
+    
     check_winner()
+    
 
 
 # Determine Winner
@@ -279,8 +286,9 @@ def check_winner():
         player_win = True
     elif total(player_hand) == total(dealer_hand):
         print("\nTie Game!")
-    bet()
     reset_game()
+    bet()
+    
 
 
 # Reset Game
