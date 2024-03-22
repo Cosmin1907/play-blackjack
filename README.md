@@ -78,9 +78,11 @@ In this section, I'll offer a brief summary of the features included in the blac
 
  - Future features will include offering the player the possibility to split hands and control the betting amount.
 
- ## Data model / Flow Chart
+ ## Logical Flow
 
- - 
+ ![Game Lobby](documentation/entergame.PNG)
+ ![Main Game](documentation/maingame.PNG)
+
 
  ## Testing
 
