@@ -59,7 +59,7 @@ In this section, I'll offer a brief summary of the features included in the blac
 
 - The game accounts for scenarios where the player runs out of money or there are no more cards left to deal. In such cases, the player is credited again, and the deck is reshuffled to ensure continuous gameplay.
 
-![Reshuffling deck](documentation/money.PNG)
+![Reshuffling deck](documentation/reshuffling.PNG)
 
 ![Credited Player](documentation/money.PNG)
 
@@ -102,6 +102,10 @@ In this section, I'll offer a brief summary of the features included in the blac
 ![A-K](documentation/aceking.PNG)
 
 ![A-10](documentation/aceten.PNG)
+
+![Dealer 21](documentation/dealerbj.PNG)
+
+![Player 21](documentation/playerbj.PNG)
 
 ![Tie Game](documentation/tiegame.PNG)
 

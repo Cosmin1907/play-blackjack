@@ -22,7 +22,7 @@ game_deck = copy.deepcopy(decks * one_deck)
 
 
 # Game Lobby
-def enter_game(): 
+def enter_game():
     """
     Initiate player's entry into Blackjack game.
 
@@ -30,7 +30,8 @@ def enter_game():
     user to start game or view instructions.
     """
     while True:
-        result = pyfiglet.figlet_format("Welcome to Casino Royale", font="digital")
+        result = pyfiglet.figlet_format("Welcome to Casino Royale",
+                                        font="digital")
         colored_result = Back.GREEN + Fore.BLACK + Style.BRIGHT + result
         # Print the colored ASCII art
         print(colored_result)
@@ -50,7 +51,7 @@ def enter_game():
         else:
             os.system('clear')
             print(f"{play} is not a valid input please enter 1 or 2\n")
-       
+
 
 def instructions():
     """
@@ -63,16 +64,19 @@ def instructions():
     print("2. Card Values:")
     print("   - Number cards are worth their number")
     print("   - Face cards (Jacks, Queens, Kings) are worth 10")
-    print("   - Aces can be 1 or 11. AA on first hand will be 12 for best odds")
+    print("   - Aces can be 1 or 11. \
+AA on first hand will be 12 for best odds")
     print("3. Gameplay:")
     print("   - You get two cards to start.")
-    print("   - You can 'hit' to get another card or 'stand' to keep your cards")
+    print("   - You can 'hit' to get another card or \
+'stand' to keep your cards")
     print("   - If your cards add up to more than 21, you lose ('bust')")
     print("   - The dealer also gets two cards hits till 17 and stands on 17")
     print("4. Winning:")
     print("   - If the dealer busts, you win automatically")
     print("   - The one closest to 21 without going over wins")
-    print("   - If you get exactly 21, it's called a 'blackjack', and you win 1.5 your bet")
+    print("   - If you get exactly 21, it's called a 'blackjack', \
+and you win 1.5 your bet")
     print("5. Tie Game:")
     print("   - If you and the dealer tie ('push'), you get your bet back")
     while True:
@@ -83,11 +87,10 @@ def instructions():
                 main_game()
             else:
                 enter_game()
-                return 
-        else: 
+                return
+        else:
             os.system('clear')
             print(f"{play} is not a valid input please enter 1 or 2\n")
-            
 
 
 # Deal Cards
@@ -163,7 +166,8 @@ def show_hand():
     if len(dealer_hand) == 2:
         return dealer_hand[0]
     elif len(dealer_hand) > 2:
-        return dealer_hand[0], dealer_hand[1]  
+        return dealer_hand[0], dealer_hand[1]
+
 
 # Game loop
 def main_game():
@@ -175,7 +179,8 @@ def main_game():
     - Display the dealer's visible card and the player's hand.
     - Prompt the player to hit or stand.
     - Implement the hitting mechanism for the dealer.
-    - Check for a winner after the initial hand deal and after the player and dealer play.
+    - Check for a winner after the initial hand deal
+    and after the player and dealer play.
     """
     global player_hand, dealer_hand, playerIn, dealerIn, bankroll
 
@@ -193,7 +198,7 @@ def main_game():
     print(f"Bankroll: ${bankroll}")
     print(f"Cards left to deal: {cards_left}")
 
-    #check if the player has 21 on the first hand
+    # check if the player has 21 on the first hand
     if total(player_hand) == 21:
         check_winner()
         return
@@ -205,13 +210,15 @@ def main_game():
             if stay_hit == '1':
                 os.system('clear')
                 print(f"\nYou STAND on {total(player_hand)}")
-                print(f"\nDealer has {dealer_hand} for a total of {total(dealer_hand)}")
+                print(f"\nDealer has {dealer_hand} for a total \
+of {total(dealer_hand)}")
                 playerIn = False
             elif stay_hit == '2':
                 print("\nYou HIT")
                 deal_cards(player_hand)
                 time.sleep(1)
-                print(f"\nYou have {player_hand} for a total of {total(player_hand)}")
+                print(f"\nYou have {player_hand} for a total \
+of {total(player_hand)}")
                 if total(player_hand) >= 21:
                     playerIn = False
                     break
@@ -219,25 +226,27 @@ def main_game():
                 os.system('clear')
                 print(f"{stay_hit} is not a valid input please enter 1 or 2\n")
                 print(f"\nDealer has: {show_hand()} and X")
-                print(f"You have: {player_hand} for a total of {total(player_hand)}")
+                print(f"You have: {player_hand} for a total \
+of {total(player_hand)}")
                 print(f"Bankroll: ${bankroll}")
 
-        # Check if the player is no longer in the game (either by standing or busting)
+        # Check if the player is no longer in the game
         if not playerIn:
-            # Dealer must hit if total is less than 17, according to Blackjack rules
+            # Dealer must hit if total is less than 17
             while total(dealer_hand) < 17:
                 print("\nDealer HITs")
                 deal_cards(dealer_hand)
                 time.sleep(1)
-                print(f"\nDealer has {dealer_hand} for a total of {total(dealer_hand)}")
+                print(f"\nDealer has {dealer_hand} for a total \
+of {total(dealer_hand)}")
                 time.sleep(1)
-                # Check after each hit if the dealer busts; if so, break immediately
+                # Check after each hit if the dealer busts
                 if total(dealer_hand) >= 21:
                     break
             # After dealer acts, if they haven't busted, they're done
             dealerIn = False
     check_winner()
-    
+
 
 # Determine Winner
 def check_winner():
@@ -267,7 +276,7 @@ def check_winner():
         print("\nTie Game!")
     bet()
     reset_game()
-    
+
 
 # Reset Game
 def reset_game():
@@ -275,7 +284,7 @@ def reset_game():
     Resets the game state or returns to the game lobby based on user input.
     """
     global player_hand, dealer_hand, playerIn, dealerIn, player_win
-    while True: 
+    while True:
         deal = input("\nENTER:\n1 DEAL\n2 GO TO GAME LOBBY\n")
         if deal == '1':
             player_hand = []
@@ -294,26 +303,28 @@ def reset_game():
             os.system('clear')
             print(f"{deal} is not a valid input please enter 1 or 2\n")
 
+
 # Betting
 def bet():
     """
     Manages the player's bet and updates the bankroll.
     """
     global player_win, bankroll
-    if player_win == True:
+    if player_win is True:
         if total(player_hand) == 21:
             bankroll += 150
         else:
             bankroll += 100
         print("\nCongratulations! You won the bet.")
-    elif player_win == False:
+    elif player_win is False:
         bankroll -= 100
         print("\nYou lost the bet.")
         if bankroll < 100:
             print("You are out of money, you are credited with another 10000$")
             bankroll = 10000
-    elif player_win == None:
+    elif player_win is None:
         print("\nYour bet is returned.")
     print(f"Bankroll: ${bankroll}")
+
 
 enter_game()
