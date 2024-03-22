@@ -47,27 +47,28 @@ In this section, I'll offer a brief summary of the features included in the blac
 
 ### Gameplay
 
-- 
+- In the initial deal, both the dealer and the player receive two cards each. One card from the dealer is not shown and is represented as an X. Additionally, the player is provided with the total bankroll and the number of cards remaining in the deck. A menu in capital letters below presents the option to HIT or STAND.
 
-  ![the image]( )
+![First hand](documentation/firsthand.PNG )
 
-- 
+- The game continues based on the player's decision. 
+- After the player's and the dealer's actions, the game declares the winner and updates the bankroll. The player is then presented with options through the game menu to continue playing.
 
-![playing  image]()
+![STAND](documentation/stand.PNG)
+![HIT](documentation/hit.PNG)
 
-- I
-  ![input image]()
-  - 
+- The game accounts for scenarios where the player runs out of money or there are no more cards left to deal. In such cases, the player is credited again, and the deck is reshuffled to ensure continuous gameplay.
 
-  ![image]()
+![Reshuffling deck](documentation/money.PNG)
 
- - 
+![Credited Player](documentation/money.PNG)
+
 
 ### Invalid input
 
  - Invalid input (If the user's input is any character other than the provided options.)
 
-![invalid input image](documentation/wronginput.PNG)
+![invalid input image 1](documentation/wronginput.PNG)
 
 - Invalid input,  the screen is cleared, and the user is prompted again.
 
@@ -77,10 +78,9 @@ In this section, I'll offer a brief summary of the features included in the blac
 
  - Future features will include offering the player the possibility to split hands and control the betting amount.
 
- ## Data model
+ ## Data model / Flow Chart
 
  - 
-
 
  ## Testing
 
@@ -95,7 +95,19 @@ In this section, I'll offer a brief summary of the features included in the blac
 - Manual testing was done throughout the developing process, where all user inputs have the desired effect. If a user input is invalid, a relevant message will tell the user what to input instead.
 - Testing was performed in both the Gitpod terminal and Code Institutes Heroku mock terminal in several different browsers, such as Chrome, Edge and Firefox.
 - All features respond as expected and give the correct error messages when user input is invalid.
-- Additionally, I conducted rigorous hard-coded testing to validate various specific game scenarios, all of which have been documented in the accompanying images below.
+- Additionally, I conducted rigorous hard-coded testing to validate various specific game scenarios, some examples have been documented in the accompanying images below:
+
+![A-A](documentation/aceace.PNG)
+
+![A-K](documentation/aceking.PNG)
+
+![A-10](documentation/aceten.PNG)
+
+![Tie Game](documentation/tiegame.PNG)
+
+![Reshuffling](documentation/reshuffling2.PNG)
+
+![Credited Player](documentation/outofmoney.PNG)
 
 ## Bugs
 
