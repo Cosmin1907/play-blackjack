@@ -14,7 +14,7 @@ playerIn = True
 dealerIn = True
 bankroll = 10000
 player_win = None
-# Initialize Deck
+# Initialize Deck source: https://youtu.be/e3YkdOXhFpQ?si=sQLN16kWOC1zlaon
 cards = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A']
 one_deck = 4 * cards
 decks = 6
@@ -93,7 +93,8 @@ and you win 1.5 your bet")
             print(f"{play} is not a valid input please enter 1 or 2\n")
 
 
-# Deal Cards
+# Deal Cards adapted for the game needs
+# Source: https://youtu.be/mpL0Y01v6tY?si=GiW_qSq1gvqj7F58
 def deal_cards(turn):
     """
     Deal a card to the player's hand.
@@ -120,7 +121,8 @@ def deal_cards(turn):
     return card
 
 
-# Calculate Hand Value
+# Calculate Hand Value, modified for game needs
+# Source: https://youtu.be/mpL0Y01v6tY?si=GiW_qSq1gvqj7F58
 def total(turn):
     """
     Calculate the total value of the player's hand.
@@ -154,6 +156,7 @@ def total(turn):
 
 
 # Display Hands
+# Source: https://youtu.be/mpL0Y01v6tY?si=GiW_qSq1gvqj7F58
 def show_hand():
     """
     Display the dealer's hand.
@@ -169,7 +172,8 @@ def show_hand():
         return dealer_hand[0], dealer_hand[1]
 
 
-# Game loop
+# Game loop, some sections of the code were borrowed
+# Source: https://youtu.be/mpL0Y01v6tY?si=GiW_qSq1gvqj7F58
 def main_game():
     """
     Run the main game logic.
@@ -249,6 +253,7 @@ of {total(dealer_hand)}")
 
 
 # Determine Winner
+# Source: https://youtu.be/mpL0Y01v6tY?si=GiW_qSq1gvqj7F58
 def check_winner():
     """
     Checks for a winner and updates player status.
