@@ -118,6 +118,7 @@ In this section, I'll offer a brief summary of the features included in the blac
 ## Bugs
 
 - The most notable bug encountered during testing occurred when both the player and dealer were dealt more than three cards each in the initial hand. This issue has been effectively resolved by adjusting the code to reset the player and dealer hands within the main game loop, ensuring a fresh start with each new hand.
+- Just before submission, another bug was spotted. Similar to how the first bug occurred, the game was incorrectly declaring a winner on the first hand. This was fixed by resetting the variables in the main game function.
 
 ## Remaining bugs
 
@@ -143,12 +144,11 @@ In this section, I'll offer a brief summary of the features included in the blac
 
 [Colorama](https://pypi.org/project/colorama/) - Colorama is a Python library that simplifies adding colored output and styling to terminal text. 
 
-### Programs & Libraries
+### Programs
 
 - [Git](https://git-scm.com/) -  Git was used through the Gitpod terminal to commit to Git and push to GitHub.
 - [GitHub](https://github.com/) - All code for the site is stored on GitHub after being pushed from Git.
 - [Heroku](https://id.heroku.com/login) - Used for hosting the game.
-- [ASCII]() - The ASCII art used in the game was generated with this app.
 - [PEP8 Online Validator](https://pep8ci.herokuapp.com/) - Validation of Python code was done with PEP8 Online.
 
 
