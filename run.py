@@ -254,9 +254,8 @@ of {total(dealer_hand)}")
                     break
             # After dealer acts, if they haven't busted, they're done
             dealerIn = False
-    
+
     check_winner()
-    
 
 
 # Determine Winner
@@ -288,7 +287,6 @@ def check_winner():
         print("\nTie Game!")
     reset_game()
     bet()
-    
 
 
 # Reset Game
