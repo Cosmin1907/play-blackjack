@@ -30,6 +30,7 @@ def enter_game():
     user to start game or view instructions.
     """
     while True:
+        # Pyfiglet and colorama libraries create desired text output.
         result = pyfiglet.figlet_format("Welcome to Casino Royale",
                                         font="digital")
         colored_result = Back.GREEN + Fore.BLACK + Style.BRIGHT + result
